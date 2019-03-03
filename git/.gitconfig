@@ -1,0 +1,16 @@
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[color]
+        ui = auto
+[alias]
+        log-refs = log --all --graph --decorate --oneline --simplify-by-decoration --no-merges
+        loggraph = log --graph --all --pretty=format:\"%Cgreen%h%Creset  %s %Cred%an%Creset %Cblue%d%Creset\"
+        unstage = reset HEAD --
+        last = log -1 HEAD
+        log-vee = log --decorate --cherry-pick --oneline --graph --boundary
+        log-vee-all = log --decorate --cherry-pick --oneline --graph --boundary --branches --remotes --tags
+[merge]
+        tool = vimdiff
